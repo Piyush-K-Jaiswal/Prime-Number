@@ -1,0 +1,43 @@
+#include<stdio.h>
+#include<time.h>
+
+int main()
+{
+    int i, a=2;
+    printf("Enter a Number : ");
+    scanf("%d", &i);
+    int limit=(i/2);
+
+    clock_t begin = clock();
+
+    if (i==2)
+    {
+        printf("The number is Prime. \n");
+    }
+    else if (i<2)
+    {   
+        printf("Enter a number greater than 1.\nNote: 0 & 1 is neither Prime nor Composite.\n");
+    }
+    else if (i>2)
+    {
+        for (a=2; a<limit; a++)
+        {
+            if (i%a==0)
+            {
+                printf("The number is not Prime.\n");
+                break;
+            }
+            else if (a==(limit-1))
+            {
+                printf("The Number is Prime.\n");
+            }
+        }   
+    }
+
+    clock_t end = clock();
+    double time_spent = (double)(end - begin)/CLOCKS_PER_SEC;
+
+    printf("The code took %f unit of time to execute. \n",time_spent);
+
+    return 0;
+}
